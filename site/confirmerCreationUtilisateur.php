@@ -94,6 +94,17 @@ include "header.php";
 		$confirmationMotDePasse = htmlspecialchars($_POST['confirmationMotDePasse']);
 	}
 
+	if ($motDePasse !== $confirmationMotDePasse) {
+    	$estValide = false;
+	}
+
+	if ($estValide) {
+   		 $motDePasse = password_hash($motDePasse, PASSWORD_BCRYPT);
+	}
+	
+	
+
+
 	if (isset($_POST['pays']) && $_POST['pays'] != "") {
 		$pays = htmlspecialchars($_POST['pays']);
 	}
